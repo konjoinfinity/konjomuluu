@@ -63,15 +63,16 @@ class MapScreen extends Component {
             .then(res => {
                 this.setState({ communities: res });
             }).catch(error => { AlertHelper.show('warn', 'Error', `${error.message}!`) });
-        // ReactNativeHaptic.generate('selection');
+        ReactNativeHaptic.generate('selection');
         Geolocation.getCurrentPosition(
             (position) => {
                 this.setState({ latitude: position.coords.latitude, longitude: position.coords.longitude, error: null });
             },
             (error) => this.setState({ error: error.message }),
-            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }, () => {
+            }
         )
-        setTimeout(() => { this.state.communities !== "" && (this.state.all === true && (this.closestCommunity(this.state.communities))) }, 1000);
+        setTimeout(() => { this.state.communities !== "" && (this.state.all === true && (this.closestCommunity(this.state.communities))) }, 5000);
     }
 
     rendering() {
@@ -80,7 +81,7 @@ class MapScreen extends Component {
 
     showJoined() {
         this.state.rendering === false && (this.rendering())
-        // ReactNativeHaptic.generate('selection');
+        ReactNativeHaptic.generate('selection');
         this.setState({ joined: true, mine: false, growing: false, all: false })
         let joinedcommunities = this.state.communities.filter(community => community.members.some(member => member.name === this.state.creator));
         this.closestCommunity(joinedcommunities)
@@ -88,7 +89,7 @@ class MapScreen extends Component {
 
     showMine() {
         this.state.rendering === false && (this.rendering())
-        // ReactNativeHaptic.generate('selection');
+        ReactNativeHaptic.generate('selection');
         this.setState({ joined: false, mine: true, growing: false, all: false })
         // let mycommunities = this.state.communities.filter(community => community.creator === this.state.creator);
         // this.closestCommunity(mycommunities)
@@ -97,7 +98,7 @@ class MapScreen extends Component {
 
     showGrowing() {
         this.state.rendering === false && (this.rendering())
-        // ReactNativeHaptic.generate('selection');
+        ReactNativeHaptic.generate('selection');
         this.setState({ joined: false, mine: false, growing: true, all: false })
         let growcommunities = this.state.communities.filter(community => community.numberOfMembers < 3);
         this.closestCommunity(growcommunities)
@@ -105,7 +106,7 @@ class MapScreen extends Component {
 
     showAll() {
         this.state.rendering === false && (this.rendering())
-        // ReactNativeHaptic.generate('selection');
+        ReactNativeHaptic.generate('selection');
         this.setState({ joined: false, mine: false, growing: false, all: true })
         this.closestCommunity(this.state.communities)
     }

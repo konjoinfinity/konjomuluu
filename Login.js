@@ -13,11 +13,11 @@ import {
   Alert
 } from "react-native";
 import { Card } from "react-native-elements";
-// import { AlertHelper } from './AlertHelper';
-// import ReactNativeHapticFeedback from "react-native-haptic-feedback";
+import { AlertHelper } from './AlertHelper';
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 import SInfo from 'react-native-sensitive-info';
 import konjoUrl from "./Urls";
-// import ReactNativeHaptic from 'react-native-haptic';
+import ReactNativeHaptic from 'react-native-haptic';
 
 const STORAGE_KEY = "id_token";
 const STORAGE_USER = "username";
@@ -52,28 +52,28 @@ class LoginScreen extends React.Component {
   };
 
   async componentDidMount() {
-    // ReactNativeHaptic.generate('selection');
+    ReactNativeHaptic.generate('selection');
     const username = await SInfo.getItem(STORAGE_USER, {});
     if (username !== undefined) {
       await SInfo.deleteItem(STORAGE_KEY, {});
       await SInfo.deleteItem(STORAGE_USER, {});
       const passchange = this.props.navigation.getParam('passchange', 'false');
       if (passchange === true) {
-        // AlertHelper.show('info', 'Info', 'Password changed. Please login with your new password.');
-        Alert.alert('Password changed. Please login with your new password.')
+        AlertHelper.show('info', 'Info', 'Password changed. Please login with your new password.');
+        // Alert.alert('Password changed. Please login with your new password.')
       } else {
-        // AlertHelper.show('info', 'Info', 'You have logged out.');
-        Alert.alert('You have logged out.')
+        AlertHelper.show('info', 'Info', 'You have logged out.');
+        // Alert.alert('You have logged out.')
       }
     }
   }
 
   handleEmailChange(email) {
-    // ReactNativeHapticFeedback.trigger("impactLight", { enableVibrateFallback: true });
+    ReactNativeHapticFeedback.trigger("impactLight", { enableVibrateFallback: true });
     this.setState({ email });
   }
   handlePasswordChange(password) {
-    // ReactNativeHapticFeedback.trigger("impactLight", { enableVibrateFallback: true });
+    ReactNativeHapticFeedback.trigger("impactLight", { enableVibrateFallback: true });
     this.setState({ password });
   }
 
@@ -87,9 +87,9 @@ class LoginScreen extends React.Component {
 
   async getUsername() {
     const username = await SInfo.getItem(STORAGE_USER, {});
-    // AlertHelper.show('info', 'Info', username === null ? "No user logged in" : username + " is logged in");
-    Alert.alert(username === null ? "No user logged in" : username + " is logged in")
-    // ReactNativeHaptic.generate('selection');
+    AlertHelper.show('info', 'Info', username === null ? "No user logged in" : username + " is logged in");
+    // Alert.alert(username === null ? "No user logged in" : username + " is logged in")
+    ReactNativeHaptic.generate('selection');
   }
 
   async onValueChange(item, selectedValue) {
@@ -117,11 +117,11 @@ class LoginScreen extends React.Component {
         .then(response => response.json())
         .then(responseData => {
           if (responseData.error) {
-            // ReactNativeHaptic.generate('selection');
-            // AlertHelper.show('error', 'Error', `${responseData.error}`);
-            Alert.alert(`${responseData.error}`)
+            ReactNativeHaptic.generate('selection');
+            AlertHelper.show('error', 'Error', `${responseData.error}`);
+            // Alert.alert(`${responseData.error}`)
           } else {
-            // ReactNativeHaptic.generate('selection');
+            ReactNativeHaptic.generate('selection');
             this.onValueChange(STORAGE_KEY, responseData.token);
             this.onValueChange(STORAGE_USER, this.state.email);
             this.props.navigation.push("Home", {
@@ -131,9 +131,9 @@ class LoginScreen extends React.Component {
           }
         })
     } else {
-      // ReactNativeHaptic.generate('selection');
-      // AlertHelper.show('warn', 'Warning', "Please enter a valid email.");
-      Alert.alert("Please enter a valid email.")
+      ReactNativeHaptic.generate('selection');
+      AlertHelper.show('warn', 'Warning', "Please enter a valid email.");
+      // Alert.alert("Please enter a valid email.")
     }
   }
 

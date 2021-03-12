@@ -48,7 +48,7 @@ const AppStack = createStackNavigator(
     {
         initialRouteName: 'Home',
         defaultNavigationOptions: {
-            gesturesEnabled: false
+            gestureEnabled: false
         }
     }
 );
