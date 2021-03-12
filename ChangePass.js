@@ -129,8 +129,8 @@ class ChangePassScreen extends React.Component {
 
     static navigationOptions = ({ navigation }) => {
         return {
-            headerTitle: <LogoTitle />,
-            headerLeft: (<View style={{ flexDirection: "row" }}>
+            headerTitle: () => <LogoTitle />,
+            headerLeft: () => (<View style={{ flexDirection: "row" }}>
                 <TouchableOpacity
                     style={styles.headerButton}
                     onPress={() => navigation.push("Home")}>
@@ -149,7 +149,7 @@ class ChangePassScreen extends React.Component {
                 </TouchableOpacity>
             </View>
             ),
-            headerRight: (<View style={{ flexDirection: "row" }}>
+            headerRight: () => (<View style={{ flexDirection: "row" }}>
                 <TouchableOpacity
                     style={styles.headerButton}
                     onPress={() => navigation.push("New")}>

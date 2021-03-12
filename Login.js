@@ -47,8 +47,8 @@ class LoginScreen extends React.Component {
   }
 
   static navigationOptions = {
-    headerTitle: <LogoTitle />,
-    headerLeft: null
+    headerTitle: () => <LogoTitle />,
+    headerLeft: () => null
   };
 
   async componentDidMount() {

@@ -119,12 +119,12 @@ const AppStack = createStackNavigator(
 //         color: "#ffffff", fontSize: 25, fontWeight: '400',
 //         paddingTop: 0
 //       },
-//       headerRight: (<View style={{ flexDirection: "row", paddingRight: 10 }}>
+//       headerRight: () => (<View style={{ flexDirection: "row", paddingRight: 10 }}>
 //         <TouchableOpacity accessibilityLabel="infobutton" style={{ height: 30, width: 30, alignItems: 'center', justifyContent: 'center', backgroundColor: '#00897b', marginLeft: 15, borderRadius: 50, padding: 2, backgroundColor: "#009688", shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: { width: 2, height: 2 } }} onPress={() => navigation.push("MyCommunities")}>
 //           <Text> ✅</Text></TouchableOpacity>
 //         <TouchableOpacity accessibilityLabel="logout" style={{ height: 30, width: 30, alignItems: 'center', justifyContent: 'center', backgroundColor: '#00897b', marginLeft: 15, borderRadius: 50, padding: 2, backgroundColor: "#009688", shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: { width: 2, height: 2 } }} onPress={() => navigation.push("GrowCommunities")}>
 //           <Text> ➡️</Text></TouchableOpacity></View>),
-//       headerLeft: (<View style={{ flexDirection: "row", paddingRight: 10 }}>
+//       headerLeft: () => (<View style={{ flexDirection: "row", paddingRight: 10 }}>
 //         <TouchableOpacity accessibilityLabel="joined" style={{ height: 30, width: 30, alignItems: 'center', justifyContent: 'center', backgroundColor: '#00897b', marginLeft: 15, borderRadius: 50, padding: 2, backgroundColor: "#009688", shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: { width: 2, height: 2 } }} onPress={() => navigation.push("JoinedCommunities")}>
 //           <Text> 👥</Text></TouchableOpacity>
 //         <TouchableOpacity accessibilityLabel="growing" style={{ height: 30, width: 30, alignItems: 'center', justifyContent: 'center', backgroundColor: '#00897b', marginLeft: 15, borderRadius: 50, padding: 2, backgroundColor: "#009688", shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: { width: 2, height: 2 } }} onPress={() => navigation.push("GrowCommunities")}>

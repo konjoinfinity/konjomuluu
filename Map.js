@@ -31,13 +31,13 @@ class MapScreen extends Component {
 
     static navigationOptions = ({ navigation }) => {
         return {
-            headerTitle: <LogoTitle />,
-            headerLeft: (<View style={{ flexDirection: "row" }}>
+            headerTitle: () => <LogoTitle />,
+            headerLeft: () => (<View style={{ flexDirection: "row" }}>
                 <TouchableOpacity style={styles.headerButton} onPress={() => navigation.push("Home")}>
                     <View><Text style={{ fontSize: 25 }}>🏠</Text></View></TouchableOpacity>
                 <TouchableOpacity style={styles.headerButton} onPress={() => navigation.push("Profile")}>
                     <View><Text style={{ fontSize: 25 }}>👤</Text></View></TouchableOpacity></View>),
-            headerRight: (<View style={{ flexDirection: "row" }}>
+            headerRight: () => (<View style={{ flexDirection: "row" }}>
                 <TouchableOpacity style={styles.headerButton} onPress={() => navigation.push("New")}>
                     <View><Text style={{ fontSize: 25 }}>➕</Text></View></TouchableOpacity>
                 <TouchableOpacity style={styles.headerButton} onPress={() => navigation.push("Communities")}>

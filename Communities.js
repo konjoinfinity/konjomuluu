@@ -65,8 +65,8 @@ class CommunitiesScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: <LogoTitle />,
-      headerLeft: (<TouchableOpacity
+      headerTitle: () => <LogoTitle />,
+      headerLeft: () => (<TouchableOpacity
         onPress={navigation.getParam('openCloseNav')}>
         <View>
           <Image
@@ -109,7 +109,7 @@ class CommunitiesScreen extends React.Component {
         <ScrollView ref={(ref) => { this.scrolltop = ref; }}>
           {this.state.nav === true && <Nav navigation={this.props.navigation} />}
           <Text style={{ fontSize: 30, textAlign: "center", padding: 20 }}>
-            {this.state.communites == undefined ? "No Konjos" : "Konjos"}
+            {this.state.communites == "" ? "No Konjos" : "Konjos"}
           </Text>
           <AnimatableView
             animation="bounceInUp"

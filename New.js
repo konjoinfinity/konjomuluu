@@ -47,8 +47,8 @@ class NewScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: <LogoTitle />,
-      headerLeft: (<View style={{ flexDirection: "row" }}>
+      headerTitle: () => <LogoTitle />,
+      headerLeft: () => (<View style={{ flexDirection: "row" }}>
         <AnimatableView
           animation="bounceInLeft"
           delay={10}
@@ -77,7 +77,7 @@ class NewScreen extends React.Component {
         </AnimatableView>
       </View>
       ),
-      headerRight: (<View style={{ flexDirection: "row" }}>
+      headerRight: () => (<View style={{ flexDirection: "row" }}>
         <AnimatableView
           animation="bounceInRight"
           delay={10}
