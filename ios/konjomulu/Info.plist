@@ -21,7 +21,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -37,12 +39,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>The app only collects the initial geolocation to create an object in the database if creating a new community.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-    <string>Application only requires users geolocation when viewing the map or creating a new community.  We do not actively track location.</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>The app only collects the initial geolocation to create an object in the database if creating a new community.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Konjo mulu requires geolocation to display users location to nearby communities.</string>
+	<string>Application only requires users geolocation when viewing the map or creating a new community.  We do not actively track location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Konjo mulu requires geolocation to display users location to nearby communities.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
